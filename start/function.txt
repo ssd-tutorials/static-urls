@@ -1,0 +1,11 @@
+function validIdentity($key) {
+	
+    $result = strtolower($key);
+
+    $result = preg_replace("/[^a-z0-9\s_]/", "", $result);
+    $result = trim(preg_replace("/\s+/", "_", $result));
+    $result = trim(substr($result, 0, 150));
+    $result = preg_replace("/\s/", "_", $result);
+
+    return $result;
+}
